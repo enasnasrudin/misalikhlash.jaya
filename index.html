@@ -14,53 +14,79 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 15px; /* tidak terlalu jauh dengan menu */
     }
 
     header img {
-      width: 120px;
+      width: 80px;   /* logo lebih kecil */
       border-radius: 50%;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     header h1 {
       color: white;
-      font-size: 24px;
-      margin: 10px 0;
+      font-size: 18px; /* teks @MIS AL-IKHLASH lebih kecil */
+      margin: 5px 0;
     }
 
     /* Tombol INFO MADRASAH */
     .info-btn {
       display: inline-block;
-      padding: 12px 30px;
-      margin-top: 15px;
-      font-size: 18px;
+      padding: 10px 28px;
+      margin: 10px 0;
+      font-size: 17px;
       font-weight: bold;
       color: white;
       text-decoration: none;
       background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      border-radius: 40px;
-      box-shadow: 0 0 15px rgba(255, 75, 43, 0.7);
+      border-radius: 35px;
+      box-shadow: 0 0 12px rgba(255, 75, 43, 0.7);
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
     }
 
     .info-btn:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
       background: linear-gradient(45deg, #ff4b2b, #ff416c);
-      box-shadow: 0 0 25px rgba(255, 75, 43, 1);
+      box-shadow: 0 0 20px rgba(255, 75, 43, 1);
     }
 
     @keyframes pulse {
       0% {
-        box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
+        box-shadow: 0 0 12px rgba(255, 75, 43, 0.6);
       }
       50% {
-        box-shadow: 0 0 30px rgba(255, 75, 43, 1);
+        box-shadow: 0 0 22px rgba(255, 75, 43, 1);
       }
       100% {
-        box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
+        box-shadow: 0 0 12px rgba(255, 75, 43, 0.6);
       }
+    }
+
+    /* Menu list */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    ul li {
+      margin: 6px 0;
+    }
+
+    ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 8px 20px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    ul li a:hover {
+      background: rgba(255, 75, 43, 0.8);
     }
   </style>
 
@@ -106,7 +132,7 @@
     <header>
       <img src="https://misalikhlash.sch.id/images/logo.jpg" />
       <h1>@MIS AL-IKHLASH</h1>
-      <!-- Tombol INFO MADRASAH sejajar dengan header -->
+      <!-- Tombol INFO MADRASAH -->
       <a href="https://misalikhlash.github.io/info_madrasah/" class="info-btn">
         INFO MADRASAH
       </a>
@@ -115,32 +141,32 @@
     <ul>
       <li>
         <a href="https://sites.google.com/view/datamialikhlash/login">
-          <b>DATA GURU</b>
+          DATA GURU
         </a>
       </li>
       <li>
         <a href="https://sites.google.com/view/datasiswamisalikhlash/login">
-          <b>DATA SISWA 2025</b>
+          DATA SISWA 2025
         </a>
       </li>
       <li>
         <a href="https://sites.google.com/view/databasesoalujian/login">
-          <b>DATABASE SOAL UJIAN</b>
+          DATABASE SOAL UJIAN
         </a>
       </li>
       <li>
         <a href="https://sites.google.com/view/rdmleger-ijazah/login">
-          <b>LEGER RDM & ARSIP IJAZAH</b>
+          LEGER RDM & ARSIP IJAZAH
         </a>
       </li>
       <li>
         <a href="https://sites.google.com/view/gallery-foto-foto/login">
-          <b>GALERY FOTO</b>
+          GALERY FOTO
         </a>
       </li>
       <li>
         <a href="https://sites.google.com/view/surat-menyurat-lainlain/login">
-          <b>DATA (LAIN-LAIN)</b>
+          DATA (LAIN-LAIN)
         </a>
       </li>
     </ul>
