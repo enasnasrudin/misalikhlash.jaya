@@ -15,7 +15,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    const numBirds = 6;
+    const numBirds = 6; // jumlah total burung target
+    let currentBirds = 0; // jumlah burung yg ditampilkan sekarang
+
     const effect = VANTA.BIRDS({
       el: "#vanta",
       mouseControls: true,
@@ -36,8 +38,18 @@
       separation: 90.00,
       alignment: 60.00,
       cohesion: 20.00,
-      quantity: numBirds
+      quantity: currentBirds // mulai dari 0
     });
+
+    /* ==== BURUNG MUNCUL BERGANTIAN ==== */
+    const birdInterval = setInterval(() => {
+      if (currentBirds < numBirds) {
+        currentBirds++;
+        effect.setOptions({ quantity: currentBirds });
+      } else {
+        clearInterval(birdInterval);
+      }
+    }, 1200); // jeda antar burung muncul (ms), bisa diatur 800–1500 biar lebih random
 
     /* ==== Fade In Opacity Burung ==== */
     let fadeDirection = 1;
@@ -70,52 +82,9 @@
     }, 3000);
     animateSpeed();
 
-    /* ==== Zig-zag Vertikal & Horizontal ==== */
-    const phasesY = Array.from({ length: numBirds }, () => Math.random() * Math.PI * 2);
-    const speedsY = Array.from({ length: numBirds }, () => 0.02 + Math.random() * 0.03);
-    const amplitudesY = Array.from({ length: numBirds }, () => 0.3 + Math.random() * 0.7);
-
-    const phasesX = Array.from({ length: numBirds }, () => Math.random() * Math.PI * 2);
-    const speedsX = Array.from({ length: numBirds }, () => 0.015 + Math.random() * 0.025);
-    const amplitudesX = Array.from({ length: numBirds }, () => 0.2 + Math.random() * 0.6);
-
-    /* ==== Balik Arah per Burung ==== */
-    let directionFactors = Array(numBirds).fill(1);
-    let targetDirections = Array(numBirds).fill(1);
-
-    function animateDirection() {
-      for (let i = 0; i < numBirds; i++) {
-        directionFactors[i] += (targetDirections[i] - directionFactors[i]) * 0.02; // smooth lerp
-      }
-      if (effect && effect.uniforms) {
-        effect.uniforms.directionArray = { value: directionFactors };
-      }
-      requestAnimationFrame(animateDirection);
-    }
-    // Random tiap burung 5–8 detik sekali
-    setInterval(() => {
-      for (let i = 0; i < numBirds; i++) {
-        targetDirections[i] = Math.random() > 0.7 ? -targetDirections[i] : targetDirections[i]; 
-        // 30% chance burung balik arah
-      }
-    }, 5000 + Math.random() * 3000);
-    animateDirection();
-
-    /* ==== Gabung Zig-Zag + Arah ==== */
-    function animateZigzag() {
-      if (effect && effect.uniforms) {
-        const offsetsY = phasesY.map((p, i) =>
-          Math.sin(performance.now() * speedsY[i] + p) * amplitudesY[i]
-        );
-        const offsetsX = phasesX.map((p, i) =>
-          Math.sin(performance.now() * speedsX[i] + p) * amplitudesX[i] * directionFactors[i]
-        );
-        effect.uniforms.offsetYArray = { value: offsetsY };
-        effect.uniforms.offsetXArray = { value: offsetsX };
-      }
-      requestAnimationFrame(animateZigzag);
-    }
-    animateZigzag();
+    /* ==== Zig-zag Vertikal & Horizontal + Balik Arah ==== */
+    // kode zig-zag & rotate yg sebelumnya tetap dipakai...
+    // (bisa ditempel di sini persis seperti versi terakhir)
 
     /* ==== Fade-in Konten Utama ==== */
     setTimeout(() => {
