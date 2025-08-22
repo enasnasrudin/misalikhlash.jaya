@@ -5,99 +5,42 @@
   <meta charset="utf-8" />
   <title>MIS AL-IKHLASH - Links</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://misalikhlash.sch.id/index.css" />
+    <link rel="stylesheet" href="https://misalikhlash.sch.id/index.css" />
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      margin-bottom: 10px; /* rapatkan jarak ke menu */
-    }
-
-    header img {
-      width: 120px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-
-    header h1 {
-      color: white;
-      font-size: 24px;
-      margin: 8px 0;
-    }
-
-    /* Tombol INFO MADRASAH */
-    .info-btn {
-      display: inline-block;
-      padding: 12px 30px;
-      margin-top: 5px; /* diperkecil */
-      margin-bottom: 10px; /* supaya dekat ke DATA GURU */
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      border-radius: 40px;
-      box-shadow: 0 0 15px rgba(255, 75, 43, 0.7);
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-    }
-
-    .info-btn:hover {
-      transform: scale(1.1);
-      background: linear-gradient(45deg, #ff4b2b, #ff416c);
-      box-shadow: 0 0 25px rgba(255, 75, 43, 1);
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(255, 75, 43, 1);
-      }
-      100% {
-        box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
-      }
-    }
-
-    /* Daftar menu */
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-    }
-
-    ul li {
-      margin: 8px 0; /* seragam antar menu */
-    }
-
-    ul li a {
-      display: inline-block;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      color: white;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    ul li a:hover {
-      background: rgba(0, 0, 0, 0.6);
-      transform: scale(1.05);
-    }
-  </style>
+  <video autoplay muted loop playsinline>
+       <source src="https://misalikhlash.sch.id/images/bg.mp4" type="video/mp4; codecs=hvc1">
+      <source src="https://misalikhlash.sch.id/images/bg.webm" type="video/webm; codecs=vp9">
+    </video>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      VANTA.BIRDS({
+        el: "#vanta",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 60.00,
+  minWidth: 60.00,
+  scale: 0.5,
+  scaleMobile: 1.00,
+  backgroundAlpha: 0.0,
+  color1: 0xe90e0e,
+  colorMode: "lerp",
+  birdSize: 1,
+  wingSpan: 100.00,
+  separation: 88.00,
+  alignment: 100.00,
+  cohesion: 100.00,
+  quantity: 3.00
+})
+      setTimeout(() => {
+        const main = document.querySelector("main");
+        main.style.opacity = 1;
+        main.style.filter = "blur(0px)";
+      }, 1000);
+    });
+  </script>
 </head>
 
 <body>
@@ -106,44 +49,46 @@
     <header>
       <img src="https://misalikhlash.sch.id/images/logo.jpg" />
       <h1>@MIS AL-IKHLASH</h1>
-      <a href="https://misalikhlash.github.io/info_madrasah/" class="info-btn">
-        INFO MADRASAH
-      </a>
     </header>
-
     <ul>
       <li>
+        <a href="https://misalikhlash.github.io/info_madrasah/">
+          <b>INFO MADRASAH</b>
+        </a>
+      </li>
+      <li>
         <a href="https://sites.google.com/view/datamialikhlash/login">
-          DATA GURU
+          <b>DATA GURU</b>
         </a>
       </li>
-      <li>
+       <li>
         <a href="https://sites.google.com/view/datasiswamisalikhlash/login">
-          DATA SISWA 2025
+           <b>DATA SISWA 2025</b>
         </a>
       </li>
-      <li>
+           <li>
         <a href="https://sites.google.com/view/databasesoalujian/login">
-          DATABASE SOAL UJIAN
+        <b>DATABASE SOAL UJIAN</b>
         </a>
       </li>
-      <li>
+       <li>
         <a href="https://sites.google.com/view/rdmleger-ijazah/login">
-          LEGER RDM & ARSIP IJAZAH
+         <b>LEGER RDM & ARSIP IJAZAH</b>
         </a>
       </li>
       <li>
         <a href="https://sites.google.com/view/gallery-foto-foto/login">
-          GALERY FOTO
+           <b>GALERY FOTO</b>
         </a>
       </li>
-      <li>
+       <li>
         <a href="https://sites.google.com/view/surat-menyurat-lainlain/login">
-          DATA (LAIN-LAIN)
+          <b>DATA (LAIN-LAIN)</b>
         </a>
       </li>
     </ul>
   </main>
-</body>
 
+</body>
+  
 </html>
