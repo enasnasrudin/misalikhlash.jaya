@@ -8,62 +8,68 @@
   <link rel="stylesheet" href="https://misalikhlash.sch.id/index.css" />
 
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
     header {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      margin-bottom: 15px; /* tidak terlalu jauh dengan menu */
+      margin-bottom: 10px; /* rapatkan jarak ke menu */
     }
 
     header img {
-      width: 80px;   /* logo lebih kecil */
+      width: 120px;
       border-radius: 50%;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     header h1 {
       color: white;
-      font-size: 18px; /* teks @MIS AL-IKHLASH lebih kecil */
-      margin: 5px 0;
+      font-size: 24px;
+      margin: 8px 0;
     }
 
     /* Tombol INFO MADRASAH */
     .info-btn {
       display: inline-block;
-      padding: 10px 28px;
-      margin: 10px 0;
-      font-size: 17px;
+      padding: 12px 30px;
+      margin-top: 5px; /* diperkecil */
+      margin-bottom: 10px; /* supaya dekat ke DATA GURU */
+      font-size: 18px;
       font-weight: bold;
       color: white;
       text-decoration: none;
       background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      border-radius: 35px;
-      box-shadow: 0 0 12px rgba(255, 75, 43, 0.7);
+      border-radius: 40px;
+      box-shadow: 0 0 15px rgba(255, 75, 43, 0.7);
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
     }
 
     .info-btn:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
       background: linear-gradient(45deg, #ff4b2b, #ff416c);
-      box-shadow: 0 0 20px rgba(255, 75, 43, 1);
+      box-shadow: 0 0 25px rgba(255, 75, 43, 1);
     }
 
     @keyframes pulse {
       0% {
-        box-shadow: 0 0 12px rgba(255, 75, 43, 0.6);
+        box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
       }
       50% {
-        box-shadow: 0 0 22px rgba(255, 75, 43, 1);
+        box-shadow: 0 0 30px rgba(255, 75, 43, 1);
       }
       100% {
-        box-shadow: 0 0 12px rgba(255, 75, 43, 0.6);
+        box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
       }
     }
 
-    /* Menu list */
+    /* Daftar menu */
     ul {
       list-style: none;
       padding: 0;
@@ -72,58 +78,26 @@
     }
 
     ul li {
-      margin: 6px 0;
+      margin: 8px 0; /* seragam antar menu */
     }
 
     ul li a {
+      display: inline-block;
+      padding: 10px 20px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 16px;
       color: white;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 8px 20px;
-      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
       transition: 0.3s;
     }
 
     ul li a:hover {
-      background: rgba(255, 75, 43, 0.8);
+      background: rgba(0, 0, 0, 0.6);
+      transform: scale(1.05);
     }
   </style>
-
-  <video autoplay muted loop playsinline>
-    <source src="https://misalikhlash.sch.id/images/bg.mp4" type="video/mp4; codecs=hvc1">
-    <source src="https://misalikhlash.sch.id/images/bg.webm" type="video/webm; codecs=vp9">
-  </video>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      VANTA.BIRDS({
-        el: "#vanta",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 60.00,
-        minWidth: 60.00,
-        scale: 0.5,
-        scaleMobile: 1.00,
-        backgroundAlpha: 0.0,
-        color1: 0xe90e0e,
-        colorMode: "lerp",
-        birdSize: 1,
-        wingSpan: 100.00,
-        separation: 88.00,
-        alignment: 100.00,
-        cohesion: 100.00,
-        quantity: 3.00
-      })
-      setTimeout(() => {
-        const main = document.querySelector("main");
-        main.style.opacity = 1;
-        main.style.filter = "blur(0px)";
-      }, 1000);
-    });
-  </script>
 </head>
 
 <body>
@@ -132,7 +106,6 @@
     <header>
       <img src="https://misalikhlash.sch.id/images/logo.jpg" />
       <h1>@MIS AL-IKHLASH</h1>
-      <!-- Tombol INFO MADRASAH -->
       <a href="https://misalikhlash.github.io/info_madrasah/" class="info-btn">
         INFO MADRASAH
       </a>
