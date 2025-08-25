@@ -94,8 +94,11 @@
       color: white;
       font-size: 16px;
       padding: 10px 20px;
-      display: block;     /* 🔥 seluruh area bisa diklik */
-      width: 100%;        /* penuh di dalam <li> */
+      display: flex;              /* 🔥 flexbox */
+      justify-content: center;    /* 🔥 rata tengah horizontal */
+      align-items: center;        /* 🔥 rata tengah vertikal */
+      width: 100%;
+      min-height: 45px;           /* 🔥 biar ada tinggi kotak */
       border-radius: 8px;
       transition: 0.3s;
     }
@@ -111,15 +114,9 @@
     }
 
     @keyframes smoothColor {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     footer {
@@ -141,15 +138,9 @@
     }
 
     @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   </style>
 </head>
