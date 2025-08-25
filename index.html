@@ -94,11 +94,7 @@
       color: white;
       font-size: 16px;
       padding: 10px 20px;
-      display: flex;              /* 🔥 flexbox */
-      justify-content: center;    /* 🔥 rata tengah horizontal */
-      align-items: center;        /* 🔥 rata tengah vertikal */
-      width: 100%;
-      min-height: 45px;           /* 🔥 biar ada tinggi kotak */
+      display: inline-block;
       border-radius: 8px;
       transition: 0.3s;
     }
@@ -114,9 +110,15 @@
     }
 
     @keyframes smoothColor {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     footer {
@@ -138,9 +140,17 @@
     }
 
     @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
   </style>
 </head>
@@ -153,18 +163,34 @@
       <h1>@MIS AL-IKHLASH</h1>
     </header>
     <ul>
-      <li><a href="https://misalikhlash.github.io/info_madrasah/"><b>INFO MADRASAH</b></a></li>
-      <li><a href="https://sites.google.com/view/datamialikhlash/login"><b>DATA GURU</b></a></li>
-      <li><a href="https://sites.google.com/view/datasiswamisalikhlash/login"><b>DATA SISWA 2025</b></a></li>
-      <li><a href="https://sites.google.com/view/databasesoalujian/login"><b>DATABASE SOAL UJIAN</b></a></li>
-      <li><a href="https://quranicaudio.com/"><b>MP3 AL-QUR'AN</b></a></li>
-      <li><a href="http://nisn.misalikhlash.sch.id/"><b>CETAK KARTU NISN ONLINE</b></a></li>
-      <li><a href="https://sites.google.com/view/surat-menyurat-lainlain/login"><b>DATA (LAIN-LAIN)</b></a></li>
+      <li>
+        <a href="https://misalikhlash.github.io/info_madrasah/"><b>INFO MADRASAH</b></a>
+      </li>
+      <li>
+        <a href="https://sites.google.com/view/datamialikhlash/login"><b>DATA GURU</b></a>
+      </li>
+      <li>
+        <a href="https://sites.google.com/view/datasiswamisalikhlash/login"><b>DATA SISWA 2025</b></a>
+      </li>
+      <li>
+        <a href="https://sites.google.com/view/databasesoalujian/login"><b>DATABASE SOAL UJIAN</b></a>
+      </li>
+      <li>
+        <a href="https://quranicaudio.com/"><b>MP3 AL-QUR'AN</b></a>
+      </li>
+      <li>
+        <a href="http://nisn.misalikhlash.sch.id/"><b>CETAK KARTU NISN ONLINE</b></a>
+      </li>
+      <li>
+        <a href="https://sites.google.com/view/surat-menyurat-lainlain/login"><b>DATA (LAIN-LAIN)</b></a>
+      </li>
     </ul>
   </main>
 
   <footer>
     @2024 <span class="animated-text">MIS AL-IKHLASH</span> All Rights Reserved
   </footer>
+
 </body>
+
 </html>
