@@ -7,90 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://misalikhlash.sch.id/index.css" />
 
+  <!-- Background Video -->
   <video autoplay muted loop playsinline>
     <source src="https://misalikhlash.sch.id/images/bg.mp4" type="video/mp4; codecs=hvc1">
     <source src="https://misalikhlash.sch.id/images/bg.webm" type="video/webm; codecs=vp9">
   </video>
 
+  <!-- VANTA.JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const effect = VANTA.BIRDS({
-        el: "#vanta",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 60.00,
-        minWidth: 60.00,
-        scale: 0.9,
-        scaleMobile: 1.0,
-        backgroundAlpha: 0.0,
-        color1: 0xffffff,
-        color2: 0xcccccc,
-        colorMode: "variance",
-        birdSize: 1.2,
-        wingSpan: 120.00,
-        speedLimit: 3.5,
-        separation: 90.00,
-        alignment: 65.00,
-        cohesion: 25.00,
-        quantity: 4.00
-      });
-
-      /* ====== Efek Natural Burung ====== */
-      // variasi ukuran & sayap
-      setInterval(() => {
-        const randomSize = 1 + Math.random() * 1.2;
-        const randomWing = 100 + Math.random() * 50;
-        effect.setOptions({ birdSize: randomSize, wingSpan: randomWing });
-      }, 5000);
-
-      // kecepatan alami pakai sinus
-      let tick = 0;
-      function animateSpeed() {
-        tick += 0.02;
-        const baseSpeed = 3.5;
-        const wave = Math.sin(tick) * 1.5;
-        const jitter = (Math.random() - 0.5) * 0.2;
-        effect.setOptions({ speedLimit: baseSpeed + wave + jitter });
-        requestAnimationFrame(animateSpeed);
-      }
-      animateSpeed();
-
-      // arah burung berubah perlahan
-      setInterval(() => {
-        const newAlign = 50 + Math.random() * 40;
-        const newSep = 70 + Math.random() * 40;
-        effect.setOptions({ alignment: newAlign, separation: newSep });
-      }, 7000);
-
-      // efek fade opacity burung
-      if (effect && effect.uniforms) {
-        effect.uniforms.birdOpacity = { value: 1.0 };
-      }
-      let fadeDirection = 1;
-      let opacity = 0.4;
-      function animateFade() {
-        opacity += 0.004 * fadeDirection;
-        if (opacity >= 1) fadeDirection = -1;
-        if (opacity <= 0.3) fadeDirection = 1;
-        if (effect && effect.uniforms) {
-          effect.uniforms.birdOpacity.value = opacity;
-        }
-        requestAnimationFrame(animateFade);
-      }
-      animateFade();
-
-      // efek blur hilang setelah load
-      setTimeout(() => {
-        const main = document.querySelector("main");
-        main.style.opacity = 1;
-        main.style.filter = "blur(0px)";
-      }, 1000);
-    });
-  </script>
 
   <style>
     ul {
@@ -224,21 +149,54 @@
   <button id="toggleSound">🔊</button>
 
   <script>
-    const birdSound = document.getElementById("birdSound");
-    birdSound.volume = 0.25; // suara awal pelan
+    // === VANTA BIRDS EFFECT ===
+    window.addEventListener("DOMContentLoaded", () => {
+      const effect = VANTA.BIRDS({
+        el: "#vanta",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 60.00,
+        minWidth: 60.00,
+        scale: 0.9,
+        scaleMobile: 1.0,
+        backgroundAlpha: 0.0,
+        color1: 0xff0000,
+        color2: 0x00ffcc,
+        birdSize: 1.2,
+        wingSpan: 120.00,
+        speedLimit: 3.5,
+        separation: 90.00,
+        alignment: 65.00,
+        cohesion: 25.00,
+        quantity: 4.00
+      });
 
-    const toggleBtn = document.getElementById("toggleSound");
-    let isPlaying = true;
+      // 🔄 Variasi warna burung
+      const colors = [0xff0000, 0xff7300, 0xfffb00, 0x48ff00, 0x00ffd5, 0x002bff, 0x7a00ff, 0xff00ab];
+      setInterval(() => {
+        const c1 = colors[Math.floor(Math.random() * colors.length)];
+        const c2 = colors[Math.floor(Math.random() * colors.length)];
+        effect.setOptions({ color1: c1, color2: c2 });
+      }, 4000);
 
-    toggleBtn.addEventListener("click", () => {
-      if (isPlaying) {
-        birdSound.pause();
-        toggleBtn.textContent = "🔇";
-      } else {
-        birdSound.play();
-        toggleBtn.textContent = "🔊";
-      }
-      isPlaying = !isPlaying;
+      // 🔊 Suara burung
+      const birdSound = document.getElementById("birdSound");
+      birdSound.volume = 0.25;
+
+      const toggleBtn = document.getElementById("toggleSound");
+      let isPlaying = true;
+
+      toggleBtn.addEventListener("click", () => {
+        if (isPlaying) {
+          birdSound.pause();
+          toggleBtn.textContent = "🔇";
+        } else {
+          birdSound.play();
+          toggleBtn.textContent = "🔊";
+        }
+        isPlaying = !isPlaying;
+      });
     });
   </script>
 </body>
