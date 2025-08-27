@@ -40,7 +40,7 @@
         quantity: 3.00
       });
 
-      // Fade opacity burung natural
+      // ✨ Fade opacity natural
       let fadeDirection = 1;
       let opacity = 0.3;
       function animateFade() {
@@ -57,7 +57,7 @@
       }
       animateFade();
 
-      // Speed burung berubah-ubah
+      // ✨ Speed berubah-ubah
       let currentSpeed = 4;
       let targetSpeed = 4;
       function animateSpeed() {
@@ -70,6 +70,16 @@
       }, 3000);
       animateSpeed();
 
+      // ✨ Goyangan sayap (flapping)
+      let flapAngle = 0;
+      function animateWings() {
+        flapAngle += 0.08; // semakin besar semakin cepat kepakan
+        let newWingSpan = 110 + Math.sin(flapAngle) * 20; 
+        effect.setOptions({ wingSpan: newWingSpan });
+        requestAnimationFrame(animateWings);
+      }
+      animateWings();
+
       // Fade in main
       setTimeout(() => {
         const main = document.querySelector("main");
@@ -80,12 +90,7 @@
   </script>
 
   <style>
-    ul {
-      margin-bottom: 5px;
-      padding: 0;
-      list-style: none;
-      text-align: center;
-    }
+    ul { margin-bottom: 5px; padding: 0; list-style: none; text-align: center; }
     ul li { margin: 11px 0; }
     ul li a {
       text-decoration: none;
@@ -99,7 +104,7 @@
 
     /* ✨ Efek smooth khusus untuk INFO MADRASAH */
     ul li:first-child a {
-      background: linear-gradient(270deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00ab);
+      background: linear-gradient(270deg,#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00ab);
       background-size: 1600% 1600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -107,9 +112,9 @@
       font-weight: bold;
     }
     @keyframes smoothColor {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
     }
 
     footer {
@@ -122,17 +127,17 @@
     }
 
     .animated-text {
-      background: linear-gradient(270deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00ab);
-      background-size: 1600% 1600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: linear-gradient(270deg,#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00ab);
+      background-size:1600% 1600%;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
       animation: gradientMove 10s ease infinite;
       font-weight: bold;
     }
     @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
     }
 
     /* 🔘 Tombol kontrol suara */
@@ -148,9 +153,7 @@
       cursor: pointer;
       transition: 0.3s;
     }
-    #toggleSound:hover {
-      background: rgba(255,255,255,0.2);
-    }
+    #toggleSound:hover { background: rgba(255,255,255,0.2); }
   </style>
 </head>
 <body>
@@ -176,18 +179,17 @@
   <footer>
     @2024 <span class="animated-text">MIS AL-IKHLASH</span> All Rights Reserved
     <br>
-    <!-- 🔘 Tombol suara di tengah bawah footer -->
     <button id="toggleSound">🔊</button>
   </footer>
 
   <!-- 🎵 Audio suara burung -->
   <audio id="birdSound" autoplay loop>
-    <source src="https://nasayu.id/audio.mp3" type="audio/mpeg">
+    <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
   </audio>
 
   <script>
     const birdSound = document.getElementById("birdSound");
-    birdSound.volume = 0.25; // suara awal pelan
+    birdSound.volume = 0.25;
 
     const toggleBtn = document.getElementById("toggleSound");
     let isPlaying = true;
@@ -195,10 +197,10 @@
     toggleBtn.addEventListener("click", () => {
       if (isPlaying) {
         birdSound.pause();
-        toggleBtn.textContent = "🔇"; // icon mute
+        toggleBtn.textContent = "🔇";
       } else {
         birdSound.play();
-        toggleBtn.textContent = "🔊"; // icon sound
+        toggleBtn.textContent = "🔊";
       }
       isPlaying = !isPlaying;
     });
