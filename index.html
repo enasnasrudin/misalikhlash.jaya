@@ -11,27 +11,33 @@
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
 
   <style>
-    body, html {
+    html {
+      scroll-behavior: smooth; /* ✅ scroll halus */
+    }
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column; /* ✅ supaya footer bisa auto nempel bawah */
+      overflow-x: hidden; /* cegah geser kanan-kiri */
     }
 
-    /* ✅ Background pakai gambar responsif */
+    /* ✅ Background tetap full-screen */
     #vanta {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
       background: url("https://nasayu.id/misalikhlash.jpg") no-repeat center center;
-      background-size: cover; /* responsif untuk mobile & PC */
+      background-size: cover;
       z-index: -1;
     }
 
     main {
       text-align: center;
       padding: 20px;
+      flex: 1; /* isi ruang kosong */
       opacity: 0;
       filter: blur(5px);
       transition: all 1s ease;
@@ -67,8 +73,8 @@
       text-align: center;
       font-size: 12px;
       color: white;
-      margin-top: 0;
-      padding: 4px 0;
+      margin-top: auto; /* ✅ auto nempel bawah */
+      padding: 8px 0;
       opacity: 0.9;
     }
 
