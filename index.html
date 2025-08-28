@@ -74,8 +74,15 @@
       font-size: 12px;
       color: white;
       margin-top: auto; /* ✅ auto nempel bawah */
-      padding: 8px 0;
+      padding: 12px 0;  /* agak longgar di desktop */
       opacity: 0.9;
+    }
+
+    /* ✅ Atur jarak footer khusus mobile */
+    @media (max-width: 600px) {
+      ul { margin-bottom: 0 !important; }      /* hapus jarak ekstra */
+      ul li:last-child { margin-bottom: 5px; } /* kasih jarak kecil saja */
+      footer { padding-top: 5px; padding-bottom: 8px; } /* rapatkan ke menu */
     }
 
     .animated-text {
@@ -174,7 +181,7 @@
 
     // Kontrol suara
     const birdSound = document.getElementById("birdSound");
-    birdSound.volume = 0.25;
+    birdSound.volume = 0.65;
 
     const toggleBtn = document.getElementById("toggleSound");
     let isPlaying = false;
