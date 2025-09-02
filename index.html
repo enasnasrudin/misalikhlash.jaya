@@ -42,14 +42,12 @@
       filter: blur(5px);
       transition: all 1s ease;
 
-      /* ✅ Tengah horizontal, tapi konten mulai dari atas */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
     }
 
-    /* Tambahan jarak nyaman di desktop */
     @media (min-width: 601px) {
       main { padding-top: 60px; }
     }
@@ -59,7 +57,11 @@
       height: auto;
     }
 
-    ul { margin: 10px 0; padding: 0; list-style: none; }
+    ul {
+      margin: 10px 0 20px; /* ✅ jarak bawah diperkecil */
+      padding: 0;
+      list-style: none;
+    }
     ul li { margin: 8px 0; }
     ul li a {
       text-decoration: none;
@@ -90,13 +92,13 @@
       text-align: center;
       font-size: 12px;
       color: white;
-      margin-top: auto;
-      padding: 10px 0;
+      margin-top: 10px; /* ✅ lebih dekat ke menu */
+      padding: 8px 0;
       opacity: 0.9;
     }
 
     #toggleSound {
-      margin-top: 8px;
+      margin-top: 6px;
       background: rgba(0,0,0,0.6);
       color: white;
       border: none;
@@ -111,11 +113,9 @@
 
     /* ✅ Mobile */
     @media (max-width: 600px) {
-      main {
-        justify-content: flex-start; /* tetap dari atas di HP */
-        padding-top: 20px;
-      }
-      footer { padding: 6px 0; }
+      main { padding-top: 20px; }
+      ul { margin-bottom: 15px; } /* ✅ rapat di HP */
+      footer { padding: 6px 0; margin-top: 5px; }
     }
   </style>
 </head>
