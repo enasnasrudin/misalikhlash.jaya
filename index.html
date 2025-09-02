@@ -11,18 +11,26 @@
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
 
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       min-height: 100vh;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       overflow-x: hidden;
     }
 
     /* ✅ Background tetap full-screen */
     #vanta {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: url("https://nasayu.id/misalikhlash.jpg") no-repeat center center;
       background-size: cover;
       z-index: -1;
@@ -35,37 +43,23 @@
       opacity: 0;
       filter: blur(5px);
       transition: all 1s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* biar footer dekat konten */
     }
 
-    /* ✅ Form login */
-    form {
-      margin: 20px auto;
-      max-width: 300px;
-      background: rgba(0,0,0,0.5);
-      padding: 15px;
-      border-radius: 12px;
+    ul {
+      margin-bottom: 5px;
+      padding: 0;
+      list-style: none;
+      text-align: center;
     }
-    form input {
-      width: 100%;
-      padding: 10px;
-      margin: 6px 0;
-      border-radius: 8px;
-      border: none;
-    }
-    form button {
-      width: 100%;
-      padding: 10px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    form button:hover { background: #0056b3; }
 
-    ul { margin-bottom: 5px; padding: 0; list-style: none; text-align: center; }
-    ul li { margin: 10px 0; }
+    ul li {
+      margin: 10px 0;
+    }
+
     ul li a {
       text-decoration: none;
       color: white;
@@ -77,7 +71,17 @@
     }
 
     ul li:first-child a {
-      background: linear-gradient(270deg,#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00ab);
+      background: linear-gradient(
+        270deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00ab
+      );
       background-size: 1600% 1600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -86,9 +90,9 @@
     }
 
     @keyframes smoothColor {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     footer {
@@ -102,55 +106,73 @@
 
     /* ✅ Atur jarak footer & konten di mobile */
     @media (max-width: 600px) {
-      main { flex: unset; padding-bottom: 10px; }
-      ul { margin-bottom: 5px; }
-      footer { margin-top: 0; padding-top: 5px; padding-bottom: 8px; }
+      main {
+        flex: unset;
+        padding-bottom: 10px;
+      }
+      ul {
+        margin-bottom: 5px;
+      }
+      footer {
+        margin-top: 0;
+        padding-top: 5px;
+        padding-bottom: 8px;
+      }
     }
 
     .animated-text {
-      background: linear-gradient(270deg,#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00ab);
-      background-size:1600% 1600%;
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+      background: linear-gradient(
+        270deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00ab
+      );
+      background-size: 1600% 1600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       animation: gradientMove 10s ease infinite;
       font-weight: bold;
     }
+
     @keyframes gradientMove {
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     #toggleSound {
       margin-top: 10px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       color: white;
       border: none;
       border-radius: 50%;
-      width: 35px; height: 35px;
+      width: 35px;
+      height: 35px;
       font-size: 16px;
       cursor: pointer;
       transition: 0.3s;
     }
-    #toggleSound:hover { background: rgba(255,255,255,0.2); }
+
+    #toggleSound:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
   </style>
 </head>
+
 <body>
   <!-- 🔘 Background + efek vanta -->
   <div id="vanta"></div>
 
   <main>
     <header>
-      <img src="https://misalikhlash.sch.id/images/logo.jpg" />
+      <img src="https://misalikhlash.sch.id/images/logo.jpg" alt="Logo MIS AL-IKHLASH" />
       <h1>@MIS AL-IKHLASH</h1>
     </header>
-
-    <!-- ✅ Form login -->
-    <form action="#" method="post">
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-      <button type="submit">Login</button>
-    </form>
 
     <ul>
       <li><a href="https://misalikhlash.github.io/info_madrasah/"><b>INFO MADRASAH</b></a></li>
@@ -165,12 +187,13 @@
   </main>
 
   <footer>
-    @2024 <span class="animated-text">MIS AL-IKHLASH</span> All Rights Reserved <br>
+    @2024 <span class="animated-text">MIS AL-IKHLASH</span> All Rights Reserved
+    <br />
     <button id="toggleSound">🔇</button>
   </footer>
 
   <audio id="birdSound" loop>
-    <source src="https://nasayu.id/sayu.mp3" type="audio/mpeg">
+    <source src="https://nasayu.id/sayu.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
@@ -209,8 +232,10 @@
     // Kontrol suara
     const birdSound = document.getElementById("birdSound");
     birdSound.volume = 1.0;
+
     const toggleBtn = document.getElementById("toggleSound");
     let isPlaying = false;
+
     toggleBtn.addEventListener("click", () => {
       if (isPlaying) {
         birdSound.pause();
