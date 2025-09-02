@@ -42,11 +42,16 @@
       filter: blur(5px);
       transition: all 1s ease;
 
-      /* ✅ Tengah di desktop */
+      /* ✅ Tengah horizontal, tapi konten mulai dari atas */
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+    }
+
+    /* Tambahan jarak nyaman di desktop */
+    @media (min-width: 601px) {
+      main { padding-top: 60px; }
     }
 
     header img {
@@ -107,7 +112,7 @@
     /* ✅ Mobile */
     @media (max-width: 600px) {
       main {
-        justify-content: flex-start; /* biar mulai dari atas di HP */
+        justify-content: flex-start; /* tetap dari atas di HP */
         padding-top: 20px;
       }
       footer { padding: 6px 0; }
