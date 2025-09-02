@@ -41,6 +41,12 @@
       opacity: 0;
       filter: blur(5px);
       transition: all 1s ease;
+
+      /* ✅ Tengah di desktop */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     header img {
@@ -98,9 +104,12 @@
     }
     #toggleSound:hover { background: rgba(255,255,255,0.3); }
 
-    /* Mobile */
+    /* ✅ Mobile */
     @media (max-width: 600px) {
-      main { flex: unset; padding-bottom: 10px; }
+      main {
+        justify-content: flex-start; /* biar mulai dari atas di HP */
+        padding-top: 20px;
+      }
       footer { padding: 6px 0; }
     }
   </style>
